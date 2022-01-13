@@ -1,8 +1,8 @@
-"""remove column from user
+"""create user table
 
-Revision ID: ed03301a47f3
+Revision ID: b0675693efba
 Revises: 
-Create Date: 2022-01-13 12:47:57.466727
+Create Date: 2022-01-13 14:20:30.271621
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'ed03301a47f3'
+revision = 'b0675693efba'
 down_revision = None
 branch_labels = None
 depends_on = None
