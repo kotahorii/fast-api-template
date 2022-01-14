@@ -1,6 +1,6 @@
 from typing import List
 from database import get_db
-from schemas import UserInDB, UserType
+from schemas import UserInDB
 from models import User
 from fastapi import APIRouter, status, Depends
 from sqlalchemy.orm import Session
