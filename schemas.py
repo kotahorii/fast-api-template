@@ -2,14 +2,19 @@ from typing import Optional
 from pydantic import BaseModel, EmailStr
 
 
-class User(BaseModel):
-    name: str
+class UserType(BaseModel):
+    username: str
     email: EmailStr
-    password: str
+
+    class Config:
+        orm_mode = True
 
 
-class UserInDB(User):
+class UserInDB(UserType):
     hashed_password: str
+
+    class Config:
+        orm_mode = True
 
 
 class Token(BaseModel):
