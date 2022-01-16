@@ -1,10 +1,11 @@
-from typing import List
-from database import get_db
-from schemas import UserInDB
-from models import User
-from fastapi import APIRouter, status, Depends
-from sqlalchemy.orm import Session
 import sys
+from typing import List
+
+from database import get_db
+from fastapi import APIRouter, Depends, status
+from models import User
+from schemas import UserInDB
+from sqlalchemy.orm import Session
 
 sys.path.append("../")
 from oauth2 import get_password_hash, oauth2_scheme

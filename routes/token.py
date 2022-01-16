@@ -1,15 +1,11 @@
-from database import get_db
-from fastapi import APIRouter
-from fastapi import Depends, HTTPException, status
-from sqlalchemy.orm.session import Session
-from schemas import Token
-from fastapi.security import OAuth2PasswordRequestForm
-from oauth2 import (
-    ACCESS_TOKEN_EXPIRE_MINUTES,
-    create__access_token,
-    authenticate_user,
-)
 from datetime import timedelta
+
+from database import get_db
+from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordRequestForm
+from oauth2 import ACCESS_TOKEN_EXPIRE_MINUTES, authenticate_user, create__access_token
+from schemas import Token
+from sqlalchemy.orm.session import Session
 
 router = APIRouter(tags=["token"])
 
@@ -26,9 +22,7 @@ async def login_for_access_token(
             detail="Incorrect username or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
-    access_token_expires = timedelta(
-        minutes=ACCESS_TOKEN_EXPIRE_MINUTES
-    )
+    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create__access_token(
         data={"sub": user.username}, expires_delta=access_token_expires
     )
